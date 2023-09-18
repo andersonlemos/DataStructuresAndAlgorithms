@@ -1,0 +1,13 @@
+{
+  "name": "datastructuresandalgorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "binarySearch.js",
+  "scripts": {
+    "start":"node ./src/$args[3]",
+    "test":"jest" 
+  },
+  "testPathDirs": ["src"],
+  "author": "",
+  "license": "ISC"
+}
