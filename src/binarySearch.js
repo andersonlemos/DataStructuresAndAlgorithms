@@ -1,3 +1,4 @@
+
 function binarySearch(array, item){
     let left = 0;
     let right = array.length - 1;
@@ -24,11 +25,9 @@ function binarySearchRecursive(array, left, right, item){
         let mid = left + Math.floor((right - left)/2);
         
         if(array[mid] == item) {
-           console.log("Achou")
            return mid
         };
         if(array[mid] > item) {
-           console.log("Muito alto")
            return binarySearchRecursive(array, left, mid -1, item)
         }
         return binarySearchRecursive(array, mid + 1, right, item);
