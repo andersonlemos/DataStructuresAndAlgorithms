@@ -1,22 +1,42 @@
-function binarySearch(lista, item){
-    let baixo = 0;
-    let alto = lista.length - 1;
+function binarySearch(array, item){
+    let left = 0;
+    let right = array.length - 1;
         
-    while(baixo <= alto){
+    while(left <= right){
 
-        let meio = Math.floor((baixo + alto)/2);
-        let chute = lista[meio];
+        let mid = Math.floor((left + right)/2);
+        let num = array[mid];
 
-        if(chute == item){
-            return meio
-        }else if(chute > item){   
-            alto = meio - 1;
+        if(num == item){
+            return mid
+        }else if(num > item){   
+            right = mid - 1;
         }else{
-            baixo =  meio +1
+            left =  mid +1
         }
     }
     return undefined; 
 }
 
-module.exports = { binarySearch }
+function binarySearchRecursive(array, left, right, item){
+
+    if(right >= left){
+        let mid = left + Math.floor((right - left)/2);
+        
+        if(array[mid] == item) {
+           console.log("Achou")
+           return mid
+        };
+        if(array[mid] > item) {
+           console.log("Muito alto")
+           return binarySearchRecursive(array, left, mid -1, item)
+        }
+        return binarySearchRecursive(array, mid + 1, right, item);
+    }
+  
+    return undefined; 
+}
+
+
+module.exports = { binarySearch , binarySearchRecursive}
 
