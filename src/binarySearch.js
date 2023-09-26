@@ -1,5 +1,5 @@
 
-function binarySearch(array, item){
+function iterative(array, item){
     let left = 0;
     let right = array.length - 1;
         
@@ -19,23 +19,21 @@ function binarySearch(array, item){
     return undefined; 
 }
 
-function binarySearchRecursive(array, left, right, item){
+function recursive(array, left, right, item){
 
     if(right >= left){
         let mid = left + Math.floor((right - left)/2);
         
         if(array[mid] == item) {
            return mid
-        };
-        if(array[mid] > item) {
-           return binarySearchRecursive(array, left, mid -1, item)
+        }else if(array[mid] > item) {
+           return recursive(array, left, mid -1, item)
         }
-        return binarySearchRecursive(array, mid + 1, right, item);
+        return recursive(array, mid + 1, right, item);
     }
   
     return undefined; 
 }
 
-
-module.exports = { binarySearch , binarySearchRecursive}
+module.exports = { iterative , recursive}
 
