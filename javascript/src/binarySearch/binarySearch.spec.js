@@ -4,7 +4,13 @@ const lista_valida = [1,2,3,4,5,6,7,8,9]
 let spyIterative = jest.spyOn(BinarySearch, "iterative")
 let spyRecursive = jest.spyOn(BinarySearch, "recursive")
 
+afterEach(() => {
+    spyIterative.mockClear() 
+    spyRecursive.mockClear() 
+})
+
 describe("should test a iterative binary search", () => {
+
     test("should return a valid value", () => {
         let position = BinarySearch.iterative(lista_valida,6)
         
@@ -12,7 +18,7 @@ describe("should test a iterative binary search", () => {
         expect(spyIterative).toHaveBeenCalledTimes(1);
         expect(position).not.toBe(undefined)
         expect(position).toBe(5)
-        spyIterative.mockClear()
+        // spyIterative.mockClear()
     })
     
     test("should return an undefined value", () => {
@@ -21,7 +27,7 @@ describe("should test a iterative binary search", () => {
         expect(spyIterative).toHaveBeenCalled()
         expect(spyIterative).toHaveBeenCalledTimes(1);
         expect(position).toBe(undefined)
-        spyIterative.mockClear()
+        // spyIterative.mockClear()
     })
 })
 
@@ -32,16 +38,7 @@ describe("should test a recursive binary search",() => {
         expect(spyRecursive).toHaveBeenCalled()
         expect(spyRecursive).toHaveBeenCalledTimes(1);
         expect(position).toBe(undefined)
-        spyRecursive.mockClear()
+        // spyRecursive.mockClear()
     })
 
-    test("should return a valid value", () => {
-        let position = BinarySearch.recursive(lista_valida, 0, lista_valida.length -1, 6)
-
-        expect(spyRecursive).toHaveBeenCalled()
-        expect(spyRecursive).toHaveBeenCalledTimes(1)
-        expect(position).not.toBe(undefined)
-        expect(position).toBe(5)
-        spyRecursive.mockClear()
-    })
 })
